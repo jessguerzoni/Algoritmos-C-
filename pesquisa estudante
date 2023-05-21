@@ -1,0 +1,43 @@
+#include<iostream>
+using namespace std;
+int sequencial(int vetor[],int tamanho,int x)
+{
+    bool achou=false;
+    int i=0;
+    
+    while(achou==false && i<tamanho){
+        achou=vetor[i++]==x;
+    }
+    if(achou)
+        return(i-1);
+    else
+        return -1;
+}
+
+int main()
+{
+    int N;
+    int i;
+    int aluno[20];
+    int x;
+    int busca;
+
+    cin>>N;
+
+    for(i=0;i<N;i++)
+    {
+        cin>>aluno[i];
+    }
+    cin>>x;
+
+    busca=sequencial(aluno,N,x);
+
+    if(busca == -1)
+    {
+        cout<<"Nao localizado"<<endl;
+    }
+    else{
+        cout<<"Corredor "<<busca<<endl;
+    }
+
+}
