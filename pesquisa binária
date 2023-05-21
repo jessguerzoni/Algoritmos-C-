@@ -1,0 +1,71 @@
+#include<iostream>
+using namespace std;
+
+int binaria(int vetor[],int tamanho, int x)
+{
+    bool achou; //auxiliar booleano para busca
+    int baixo;//valor auxiliar para a menor posição do vetor
+    int meio;//valor auxiliar para a posição central do vetor
+    int alto;//valor auxiliar para a maior posição do vetor
+
+    baixo=0; //0 é a primeira posição do vetor
+    alto=tamanho-1;//posição maxima-1 pois começam do 0
+    achou=false;//se mantem falso enquanto o valor não é encontrado
+    
+    //vetor faz a busca completa para tentar encontrar o valor ou nao
+    while((baixo<=alto)&&(achou==false))//
+    {
+        meio=(baixo+alto)/2; //posição central do vetor
+        if(x>vetor[meio])
+        {
+            baixo=meio+1; //baixo se torna a posição após o meio
+        }
+        else{
+            if(x<vetor[meio])
+            {
+                alto=meio-1;
+            }
+            else{
+                achou=true;
+            }
+        }
+        if (achou) //se achou for verdadeiro
+            {
+                return meio;
+            }
+        else
+        {
+            return -1; 
+        }
+    }
+}
+
+int main()
+{
+    int vetor[20];//vetor para inserir elementos
+    int x; //elemento procurado
+    int i=0;//contador
+    int tam=0; //tamanho do vetor
+    int acesso; //variavel para receber a funcao
+
+    //ler valores e inserir no vetor até -1
+    cin>>vetor[i];
+    while(vetor[i]!=-1)
+    {
+        i++;
+        tam=tam+1;
+        cin>>vetor[i];
+    }
+    cin>>x;
+
+    acesso=binaria(vetor,tam, x);
+
+    if(acesso==-1)
+    {
+        cout<<"Nao possui acesso"<<endl;
+    }
+    else{
+        cout<<"Possui acesso"<<endl;
+    }
+
+}
