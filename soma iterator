@@ -1,0 +1,34 @@
+#include<iostream>
+#include<list>
+using namespace std;
+int main()
+{
+	list<int>lista; //ponteiro que leva �s listas
+	list<int>::iterator p; //iterador pra varrer a lista
+	int x; //variavel auxiliar
+	int soma=0;
+	cin>>x;
+	while(x!=0)
+	{
+		lista.push_front(x);
+		cin>>x;
+	}
+	for(p=lista.begin();p!=lista.end();p++) //.end: posi��o ap�s o ultimo lugar
+	{
+		cout<<*p <<endl;
+	}
+	//calcular
+	for(p=lista.begin();p!=lista.end();p++)
+	{
+		soma=soma+*p;
+	}
+	cout<<soma<<endl;
+	
+	//liberar memoria utilizada
+	while(!lista.empty())
+	{
+		lista.pop_front();
+	}
+	
+	return 0;	
+}
