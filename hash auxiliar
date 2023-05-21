@@ -1,0 +1,50 @@
+#include<iostream>
+using namespace std;
+
+
+
+int hash_aux(int k, int m)
+{
+	int h;
+	h = k % m; 
+
+
+	if(h < 0) 
+	{
+		h = h + m;
+		return h;
+	}
+	else
+	{
+		return h;
+	}
+
+
+}
+int main()
+{
+	int k; //chaves pra guardar no vetor
+	int m; //tamanho do vetor
+	int n;
+	int has;
+
+	cin >> k >> m;
+	if(k != 0 && m != 0)
+	{
+		has = hash_aux(k, m);
+			  cout << has << endl;
+	}
+	while(k != 0 && m != 0)
+	{
+		cin >> k >> m;
+			if(k != 0 && m != 0)
+		{
+			has = hash_aux(k, m);
+		        cout << has << endl;
+		}
+	}
+
+
+	return 0;
+
+}
