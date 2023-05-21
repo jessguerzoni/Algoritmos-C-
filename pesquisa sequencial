@@ -1,0 +1,48 @@
+#include<iostream>
+using namespace std;
+
+int sequencial(int vetor[],int tamanho,int x)
+{
+    bool achou=false;
+    int i=0;
+    
+    while(achou==false && i<tamanho){
+        achou=vetor[i++]==x;
+    }
+    if(achou)
+        return(i-1);
+    else
+        return -1;
+}
+int main()
+{
+    int vetor[50];
+    int x;
+    int i=0;
+    int seq;
+    int tamanho=0;
+
+    //inserir valores no vetor
+
+    cin>>vetor[i];
+
+    while(vetor[i]!=-1)
+    {
+        tamanho=tamanho+1;
+        i++;
+        cin>>vetor[i];
+
+    }
+    cin>>x;
+    seq=sequencial(vetor,tamanho,x);
+
+    //digitar valor a ser buscado
+    if(seq==-1)
+    {
+        cout<<x<<" nao encontrado"<<endl;
+    }
+    else{
+        cout<<x<<" encontrado na posicao "<<seq<<endl;
+    }
+
+}
