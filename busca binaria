@@ -1,0 +1,61 @@
+#include<iostream>
+#include<iomanip>
+
+using namespace std;
+
+int binaria(float vetor[], int tamanho, float x)
+{
+	bool achou; // var aux p/ busca
+	int baixo, meio, alto; // var aux
+	baixo = 0;
+	alto = tamanho - 1;
+	achou = false;
+	while ((baixo <= alto) && (achou == false))
+	{
+		meio = (baixo + alto) / 2;
+		if (x < vetor[meio])
+			alto = meio - 1;
+		else if (x > vetor[meio])
+			baixo = meio + 1;
+		else
+			achou = true;
+	}
+	if (achou)
+		return meio;
+	else
+		return -1;
+}
+int main()
+{
+    int m; //tamanho do vetor
+    float vetor[20];//vetor para inserir os numeros
+    float x; //valor procurado
+    int i;//contador
+    int busca; //variavel para receber a função
+    
+    //definir o tamanho do vetor
+    
+    cin>>m;
+    
+    //inserir valores no vetor
+    
+    for(i=0;i<m;i++)
+    {
+        cin>>vetor[i];
+    }
+    //digitar o valor que será procurado
+    cin>>x;
+    
+    //chamar funcao
+    
+    busca=binaria(vetor,m, x);
+    
+    //mostrar resultado
+    if(busca==-1)
+        cout<<fixed<<setprecision(1)<<x<<" nao encontrado"<<endl;
+    else
+        cout<<fixed<<setprecision(1)<<x<<" encontrado na posicao "<<busca<<endl;
+    
+    
+    
+}
