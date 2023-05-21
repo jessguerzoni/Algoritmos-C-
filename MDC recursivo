@@ -1,0 +1,39 @@
+#include<iostream>
+using namespace std;
+
+int mdc(int x,int y)
+{
+    if(x==y)
+    {
+        return x;
+    }
+    if(x<y)
+    {
+        return mdc(y,x);
+    }
+    else{
+        return mdc(x-y,y);
+    }
+    
+}
+
+int main()
+{
+    int x,y;
+    int maxdc; //variavel para receber a funcao
+    
+    //ler valores de x e y
+    
+    cin>>x>>y;
+    
+    //receber a funcao para o calculo do mdc
+    
+    maxdc=mdc(x,y);
+    
+    //mostrar resultado
+    
+    cout<<maxdc<<endl;
+    
+    return 0;
+    
+}
