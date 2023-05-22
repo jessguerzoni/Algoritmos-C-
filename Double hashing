@@ -1,0 +1,60 @@
+#include<iostream>
+#include<cmath>
+using namespace std;
+
+
+int h1(int k, int m)
+{
+	int pos;
+
+	pos = k % m;
+	if(pos < 0)
+	{
+		pos = pos + m;
+	}
+	
+	return pos;
+	
+}
+int h2(int k, int m) 
+{
+    //1+(kmod(m−1))
+	int pos2=(k%(m-1))+1;
+	if(pos2 < 0)
+	{
+		pos2 = pos2 + m;
+	}
+
+    return pos2;
+	
+}
+int dhash(int k, int m, int i)
+{
+	//(h1(k)+ih2(k))modm
+	int h;
+	h=(((h1(k,m))+(i*(h2(k,m))))%m);
+	return h;
+}
+
+int main()
+{
+	//declaracao de variaveis
+	int m; //tamanho do vetor
+	int k;//chave
+	int cont; //contador
+	
+	
+
+	cin >> k;
+	cin >> m;
+	
+	
+	for(cont = 0; cont < m; cont++)
+	{
+		
+		cout << dhash(k,m, cont) << " ";
+	} 
+	cout << endl;
+
+	
+}
