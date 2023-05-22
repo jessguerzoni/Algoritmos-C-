@@ -1,0 +1,58 @@
+#include<iostream>
+using namespace std;
+
+
+int hash_aux(int k, int m)
+{
+	int h;
+	h = k % m; //k:chave; m:tamanho do vetor;h:posicao da chave dentro do vetor
+
+	
+
+	if(h < 0) 
+	{
+		h = h + m;
+		return h;
+	}
+	else
+	{
+		return h;
+	}
+
+
+}
+
+int hash1(int k, int i, int m)
+{
+    int h;
+    h=k%m;
+
+
+    h=(((k%m)+i)%m);
+
+    if(h<0)
+    {
+        h=h+m;
+        return h;
+    }
+    else
+    {
+        return h;
+    }
+    
+}
+int main()
+{
+	int k;
+    int m;
+    int cont;
+    int h;
+
+    cin>>k>>m;
+
+    for(cont=0;cont<m;cont++)
+    {
+         h=hash1(k,cont, m);
+        cout<<h<<endl;
+    }
+}
