@@ -1,0 +1,29 @@
+#include<iostream>
+#include<list>
+
+using namespace std;
+
+int main()
+{
+
+	list<int> pilha; //Ponteiro que aponta pro inicio da pilha
+	int x; // var aux para leitura dos dados
+
+	// Lendo dados e inserindo na pilha
+	for(int i = 0; i < 4; i++)
+	{
+		cin >> x;
+		pilha.push_front(x); // insere x no inicio da pilha
+	}
+
+	//mostrando e removendo elementos inseridos
+	while(!pilha.empty())
+	{
+		cout << *pilha.begin() << endl; // aponta para o primeiro elemento da lista
+		pilha.pop_front(); // remove o primeiro elemento da lista
+	}
+
+
+
+	return 0;
+}
