@@ -1,0 +1,47 @@
+#include<iostream>
+using namespace std;
+
+
+int hash_aux(int k, int m)
+{
+	int pos;
+
+	pos = k % m;
+
+	if(pos < 0)
+	{
+		pos = pos + m;
+	}
+	return pos;
+}
+
+
+int hash2(int k, int i, int m, int c1, int c2)
+{
+	return ((((hash_aux(k, m))+(c1*i)+(c2*(i*i))))% m);
+
+}
+int main()
+{
+	
+	int m; //tamanho do vetor
+	int k;//chave
+	int cont; //contador
+	int c1;
+	int c2;
+	
+
+	cin >> k;
+	cin >> m;
+	cin>>c1;
+	cin>>c2;
+	
+	for(cont = 0; cont < m; cont++)
+	{
+		
+		cout << hash2(k, cont, m,c1,c2) << " ";
+	} 
+	cout << endl;
+
+	
+}
